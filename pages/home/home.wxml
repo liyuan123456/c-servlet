@@ -1,3 +1,11 @@
 <view>
     <image class="top-theme" src="{{topTheme.entrance_img}}"></image>
+    <swiper class="swiper" indicator-dots="{{true}}" indicator-color="#157658"
+            autoplay="{{true}}" circular="{{true}}">
+        <block wx:for="{{topBanner}}" wx:key="id">
+            <swiper-item>
+                <image class="swiper" src="{{item.img}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
 </view>
