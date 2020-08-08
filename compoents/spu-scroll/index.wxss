@@ -1,0 +1,39 @@
+.title {
+    height: 90rpx;
+    width: 694rpx;
+}
+.unit{
+    font-size: 28rpx !important;
+    color: #157658 !important;
+}
+.value {
+    font-size: 28 rpx !important;
+    color: #157658 !important;
+}
+.spu-img{
+    height: 160rpx;
+    width: 160rpx;
+}
+.spu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 60rpx;
+}
+.scroll-container {
+    margin-top: 28rpx;
+}
+.container {
+    padding: 42rpx 0 34rpx 28rpx;
+    background-color: #ffffff;
+}
+.inner{
+    display: flex;
+    flex-direction: row;
+}
+.spu-text {
+    font-size: 20rpx;
+    color: #666666;
+    margin-top: 20rpx;
+}
+

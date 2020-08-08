@@ -1,21 +1,19 @@
 import {config} from "../config/config";
+import {promisic} from "./Util";
 
-class Http{
-    static request({url,method='GET',data,callback}){
-        wx.request({
-            url:`${config.basePath}${url}`,
+class Http {
+    static async request({url, method = 'GET', data}) {
+        return await promisic(wx.request)({
+            url: `${config.basePath}${url}`,
             data,
             method,
-            header:{
-                appkey:config.appkey
-            },
-            success: res => {
-                callback(res.data[0])
+            header: {
+                appkey: config.appkey
             }
         });
     }
 }
 
-export{
+export {
     Http
 }
