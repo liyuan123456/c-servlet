@@ -1,0 +1,18 @@
+function mainPrice(price,discountPrice) {
+    if(!discountPrice){
+        return price;
+    }
+    return discountPrice;
+}
+
+function sleshedPrice(price,discountPrice) {
+    if(!discountPrice){
+        return;
+    }
+    return price;
+}
+
+module.exports={
+    mainPrice:mainPrice,
+    sleshedPrice:sleshedPrice
+}

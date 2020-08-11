@@ -2,7 +2,7 @@ import {Toptheme} from "../../mode/toptheme";
 import {Banner} from "../../mode/banner";
 import {Category} from "../../mode/category";
 import {Activity} from "../../mode/activity";
-import {Water} from "../../mode/waterflow";
+import {SpuPaging} from "../../mode/spu-paging";
 
 Page({
 
@@ -18,52 +18,25 @@ Page({
         activity: null,
         spuTheme: null,
         themeB: null,
-        flag: true
+        flag: true,
+        spu_paging: null,
+        loading: 'loading'
     },
 
     /*页面初始化加载*/
     onLoad: function () {
         this.initAllData();
-        this.initWaterFlow(new Water());
+        this.initBottomSpuList();
     },
     /*初始化瀑布流*/
-    async initWaterFlow(options) {
-
-        await options.getProduct();
-        await wx.lin.renderWaterFlow(options.waterFlowArray, false, () => {
-
-        });
-    },
-    /*上拉加载*/
-    async onReachBottom() {
-        if(this.data.flag){
-            this.setData({
-                flag:false
-            })
-            if (Water.flag) {
-                wx.showToast({
-                    title: "全部加载完毕",
-                    icon: "success",
-                    duration: 2000
-                });
-            } else {
-                wx.showLoading({
-                    title: "加载中"
-                });
-                const pullWater = new Water();
-                pullWater.startAndPage();
-
-                this.initWaterFlow(pullWater);
-                setTimeout(function () {
-                    wx.hideLoading({});
-                },1000)
-            }
-            this.setData({
-                flag:true
-            })
-        }else{
-            return;
+    async initBottomSpuList() {
+        const paging = await SpuPaging.getLatestPaging();
+        this.data.spu_paging = paging;
+        const data = await paging.getMoreData();
+        if (!data) {
+            return
         }
+        wx.lin.renderWaterFlow(data.items);
     },
     /*初始化数据*/
     async initAllData() {
@@ -97,5 +70,21 @@ Page({
             spuTheme
         });
     },
+    async onReachBottom() {
+        const data = await this.data.spu_paging.getMoreData();
+        if(!data){
+            return;
+        }
+        if(!data.items){
+            return;
+        }
+        wx.lin.renderWaterFlow(data.items);
+        if(!this.data.spu_paging.moreData){
+            this.setData({
+                loading:'end'
+            })
+        }
+    }
+
 
 });

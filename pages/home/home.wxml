@@ -1,18 +1,23 @@
-<view class="container">
-    <image class="top-theme" src="{{themeA.entrance_img}}" bindload="getImageInfo"></image>
-    <swiper class="swiper" indicator-dots="{{true}}" indicator-color="#157658"
-            autoplay="{{true}}" circular="{{true}}">
-        <block wx:for="{{bannerA}}" wx:key="id">
-            <swiper-item>
-                <image class="swiper" src="{{item.img}}"></image>
-            </swiper-item>
-        </block>
-    </swiper>
-    <category-grid grid="{{category}}"></category-grid>
-    <image class="activity" src="{{activity}}"></image>
-    <spu-scroll wx:if="{{themeB.online}}" spu-list="{{spuTheme}}" theme="{{themeB}}"></spu-scroll>
-    <image class="quality" src="{{themeD.entrance_img}}"></image>
-    <hot-list banner="{{bannerB}}"></hot-list>
-    <image class="quality" src="{{themeD.entrance_img}}"></image>
-    <l-water-flow generic:l-water-flow-item="water-flow"/>
-</view>
+<l-loadmore show="{{true}}" type="{{loading}}" end-text="啊~到底了">
+    <view slot="content" class="container">
+        <image class="top-theme" src="{{themeA.entrance_img}}" bindload="getImageInfo"></image>
+        <swiper class="swiper" indicator-dots="{{true}}" indicator-color="#157658"
+                autoplay="{{true}}" circular="{{true}}">
+            <block wx:for="{{bannerA}}" wx:key="id">
+                <swiper-item>
+                    <image class="swiper" src="{{item.img}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+        <category-grid grid="{{category}}"></category-grid>
+        <image class="activity" src="{{activity}}"></image>
+        <spu-scroll wx:if="{{themeB.online}}" spu-list="{{spuTheme}}" theme="{{themeB}}"></spu-scroll>
+        <image class="quality" src="{{themeD.entrance_img}}"></image>
+        <hot-list banner="{{bannerB}}"></hot-list>
+        <image class="quality" src="{{themeD.entrance_img}}"></image>
+        <view class="spu-bottom">
+            <image class="title-spu-bottom" src="/image/home/title_buttom.png"></image>
+            <l-water-flow generic:l-water-flow-item="water-flow"/>
+        </view>
+    </view>
+</l-loadmore>

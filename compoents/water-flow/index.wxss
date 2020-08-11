@@ -21,13 +21,23 @@
 
 .life-title {
     margin-left: 10rpx !important;
+    color:#333333;
 }
 
-.tag {
-    height: 30rpx !important;
+.l-tag {
+    background-color: #DCEBE6 !important;
+    color: #157658 !important;
+    height: 40rpx !important;
     line-height: 30rpx !important;
+    font-size: 20rpx !important;
 }
-
+.tags{
+    display: flex;
+    flex-direction: row;
+    margin-top: 18rpx;
+    margin-bottom: 16rpx;
+    flex-wrap: wrap;
+}
 .art-content {
     font-size: 28rpx;
     color: #999;

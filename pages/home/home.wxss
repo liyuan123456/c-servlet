@@ -1,3 +1,4 @@
+@import "../../wxss/sleeve.wxss";
 .top-theme {
     width: 750rpx;
     height: 270rpx;
