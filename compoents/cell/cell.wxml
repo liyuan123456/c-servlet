@@ -1,0 +1,4 @@
+<wxs src="../../wxs/cell-status.wxs" module="c"></wxs>
+<view bind:tap="onTap" class="container {{c.statusStyle(cell.status).outer}}">
+    <view class="inner-container {{c.statusStyle(cell.status).inner}}">{{cell.title}}</view>
+</view>

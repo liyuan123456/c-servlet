@@ -70,6 +70,11 @@ Page({
             spuTheme
         });
     },
+
+    /**
+     * 下拉刷新
+     * @returns {Promise.<void>}
+     */
     async onReachBottom() {
         const data = await this.data.spu_paging.getMoreData();
         if(!data){

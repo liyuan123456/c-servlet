@@ -1,0 +1,20 @@
+function statusStyle(status) {
+    if(!status){
+        return;
+    }
+    switch (status){
+        case 'forbidden':
+            return{
+                outer:'forbidden',
+                inner:''
+            };
+        case 'selected':
+            return{
+                outer:'s-outer',
+                inner:'s-inner'
+            };
+    }
+}
+module.exports={
+    statusStyle:statusStyle
+}

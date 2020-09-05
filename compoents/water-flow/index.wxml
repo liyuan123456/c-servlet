@@ -1,6 +1,6 @@
 <!-- demo.wxml -->
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
-<l-card full type="cover" image="{{data.img}}" image-mode="widthFix" title="{{data.title}}" l-class="life-container" l-img-class="life-img" l-title-class="life-title" bindtap="onProduct">
+<l-card full type="cover" image="{{data.img}}" image-mode="widthFix" title="{{data.title}}" l-class="life-container" l-img-class="life-img" l-title-class="life-title" bindtap="spuDetail" data-pid="{{data.id}}">
     <view class='life-product-contianer'>
         <view class='art-content'>{{data.subtitle}}</view>
         <view class='price-container'>

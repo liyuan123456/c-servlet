@@ -1,0 +1,9 @@
+<view class="container">
+    <view class="detail">
+        <image></image>
+    </view>
+    <block wx:for="{{fances}}" wx:key="id">
+        <my-fance x="{{index}}" bind:celltap="onCellTap" fance="{{item}}"></my-fance>
+    </block>
+    <view class="counter-container"></view>
+</view>
