@@ -17,7 +17,8 @@ Component({
         previewImg: String,
         title: String,
         price: String,
-        discount_price: String
+        discount_price: String,
+        stock: String
     },
     observers: {
         "dataSpu": function (spu) {
@@ -56,7 +57,8 @@ Component({
                 previewImg: sku.img,
                 title: sku.title,
                 price: sku.price,
-                discount_price: sku.discount_price
+                discount_price: sku.discount_price,
+                stock: sku.stock
             })
         },
         bindInitData: function (fanceGroup) {

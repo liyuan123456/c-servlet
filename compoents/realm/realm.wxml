@@ -19,6 +19,8 @@
                              value-size="26"
                              l-class="discount-price">
                     </l-price>
+                    <view wx:if="{{stock && stock >= 10}}" class="stock">库存：{{stock}} 件</view>
+                    <view wx:if="{{stock && stock < 10 && stock != 0}}" class="stock-pinch">仅剩：{{stock}} 件</view>
                 </view>
                 <view class="sku-pending">
                     <text>请选择:</text>
