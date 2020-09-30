@@ -13,18 +13,27 @@ Component({
      * 组件的初始数据
      */
     data: {
-        judger: Object
+        judger: Object,
+        previewImg: String,
+        title: String,
+        price: String,
+        discount_price: String
     },
     observers: {
         "dataSpu": function (spu) {
             if (!spu) {
                 return;
             }
-            console.log(spu)
             const faceGroup = new FaceGroup(spu);
             faceGroup.initFances();
             const judger = new Judger(faceGroup);
             this.data.judger = judger
+            const defaultSku = faceGroup.getDefaultSku();
+            if (defaultSku) {
+                this.bindSkuData(defaultSku);
+            } else {
+                this.bindSpuData();
+            }
             this.bindInitData(faceGroup);
         }
 
@@ -33,6 +42,23 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        bindSpuData: function () {
+            const spu = this.properties.dataSpu;
+            this.setData({
+                previewImg: spu.data.img,
+                title: spu.data.title,
+                price: spu.data.price,
+                discount_price: spu.data.discount_price
+            })
+        },
+        bindSkuData: function (sku) {
+            this.setData({
+                previewImg: sku.img,
+                title: sku.title,
+                price: sku.price,
+                discount_price: sku.discount_price
+            })
+        },
         bindInitData: function (fanceGroup) {
             this.setData({
                 fances: fanceGroup.fances
@@ -44,8 +70,8 @@ Component({
              */
             const cell = event.detail.cell;
             const judger = this.data.judger;
-            judger.judgeByCoor(cell,event.detail.x,event.detail.y)
+            judger.judgeByCoor(cell, event.detail.x, event.detail.y)
             this.bindInitData(judger.fanceGroup);
         }
     }
-})
+});
