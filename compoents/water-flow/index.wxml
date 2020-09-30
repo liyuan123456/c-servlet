@@ -9,8 +9,20 @@
                     <l-tag type="reading" shape="circle" size="mini" l-class="l-tag">{{item}}</l-tag>
                 </block>
             </view>
-            <l-price value="{{p.mainPrice(data.price,data.discount_price)}}" value-color="#ad0e11" unit-color="#ad0e11" value-size="36"></l-price>
-            <l-price wx:if="{{data.discount_price}}" deleted value="{{p.sleshedPrice(data.price,data.discount_price)}}" value-color="#ad0e11" unit-color="#ad0e11" del-color="#666" value-color="#666" unit-color="#666"></l-price>
+            <l-price value="{{p.mainPrice(data.price,data.discount_price)}}"
+                     value-color="#ad0e11"
+                     unit-color="#ad0e11"
+                     value-size="36">
+            </l-price>
+            <l-price wx:if="{{data.discount_price}}"
+                     deleted
+                     value="{{p.sleshedPrice(data.price,data.discount_price)}}"
+                     value-color="#ad0e11"
+                     unit-color="#ad0e11"
+                     del-color="#666"
+                     value-color="#666"
+                     unit-color="#666">
+            </l-price>
         </view>
     </view>
 </l-card>

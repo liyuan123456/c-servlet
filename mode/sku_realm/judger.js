@@ -10,11 +10,24 @@ class Judger {
 
     constructor(fanceGroup) {
         this.fanceGroup = fanceGroup;
+        this.initPathDict();
         this.initSkuPending();
     }
 
     initSkuPending() {
         this.skuPending = new SkuPending();
+        const defalutSku = this.fanceGroup.getDefaultSku();
+        if(!defalutSku){
+            return
+        }
+        this.skuPending.init(defalutSku);
+        this.initSeletedCell();
+        this.judgeByCoor(null, null, null, true);
+    }
+    initSeletedCell(){
+        this.skuPending.pending.forEach(cell=>{
+            this.fanceGroup.setCellStatusById(cell.id,statusEnum.SELECTED);
+        })
     }
 
     initPathDict() {
@@ -26,11 +39,12 @@ class Judger {
             skuCode.splitToSeqments();
             this.pathDict = this.pathDict.concat(skuCode.seqments);
         });
-        console.log(this.pathDict);
     }
 
-    judgeByCoor(cell, x, y) {
-        this.changeCurrentCellStatusByCoor(cell, x, y);
+    judgeByCoor(cell, x, y,isInit=false) {
+        if(!isInit){
+            this.changeCurrentCellStatusByCoor(cell, x, y);
+        }
         this.fanceGroup.eachCell((cell, x, y) => {
             const path = this.findPotentiaPath(cell, x, y);
             if(!path){
@@ -38,9 +52,9 @@ class Judger {
             }
             const isIn = this.isInDict(path);
             if(isIn){
-                this.fanceGroup.fances[x].cells[y].status = statusEnum.WAITING;
+                this.fanceGroup.setCellStatusByXY(x,y,statusEnum.WAITING)
             }else{
-                this.fanceGroup.fances[x].cells[y].status = statusEnum.FORBIDDEN;
+                this.fanceGroup.setCellStatusByXY(x,y,statusEnum.FORBIDDEN)
             }
 
         });
@@ -78,7 +92,7 @@ class Judger {
     }
 
     /**
-     * 获得凭借后的code码
+     * 获得拼接后的code码
      * @param cell
      * @returns {string}
      */
@@ -95,11 +109,11 @@ class Judger {
     changeCurrentCellStatusByCoor(cell, x, y) {
         switch (cell.status) {
             case statusEnum.WAITING:
-                this.fanceGroup.fances[x].cells[y].status = statusEnum.SELECTED;
+                this.fanceGroup.setCellStatusByXY(x, y, statusEnum.SELECTED);
                 this.skuPending.insertCell(cell, x);
                 break;
             case statusEnum.SELECTED:
-                this.fanceGroup.fances[x].cells[y].status = statusEnum.WAITING;
+                this.fanceGroup.setCellStatusByXY(x, y, statusEnum.WAITING);
                 this.skuPending.removeCell(x);
                 break;
         }

@@ -38,6 +38,23 @@ class FaceGroup{
             }
         }
     }
+    getDefaultSku(){
+        const defaultSkuId= this.spu.data.default_sku_id;
+        if(!defaultSkuId){
+            return
+        }
+        return this.skuList.find(s=>s.id === defaultSkuId);
+    }
+    setCellStatusById(cellid,status){
+        this.eachCell(cell=>{
+            if(cell.id===cellid){
+                cell.status = status;
+            }
+        })
+    }
+    setCellStatusByXY(x,y,status){
+        this.fances[x].cells[y].status = status;
+    }
 }
 export {
     FaceGroup

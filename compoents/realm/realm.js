@@ -20,14 +20,12 @@ Component({
             if (!spu) {
                 return;
             }
+            console.log(spu)
             const faceGroup = new FaceGroup(spu);
             faceGroup.initFances();
-            this.bindInitData(faceGroup);
-
-            //生成字典
             const judger = new Judger(faceGroup);
             this.data.judger = judger
-            judger.initPathDict();
+            this.bindInitData(faceGroup);
         }
 
     },

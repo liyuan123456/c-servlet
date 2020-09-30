@@ -1,20 +1,34 @@
+import {Cell} from "./cell";
+
 class SkuPending {
     pending = []
+
     constructor() {
 
     }
-    insertCell(cell,x){
+
+    init(sku) {
+        for (let i = 0; i < sku.specs.length; i++) {
+            const cell = new Cell(sku.specs[i])
+            this.insertCell(cell,i)
+        }
+    }
+
+    insertCell(cell, x) {
         this.pending[x] = cell;
     }
-    removeCell(x){
+
+    removeCell(x) {
         this.pending[x] = null;
     }
-    findCellByX(x){
+
+    findCellByX(x) {
         return this.pending[x];
     }
-    isSelected(cell,x){
+
+    isSelected(cell, x) {
         const pendingCell = this.pending[x];
-        if(!pendingCell){
+        if (!pendingCell) {
             return
         }
         return cell.id === pendingCell.id
