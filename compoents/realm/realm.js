@@ -1,5 +1,6 @@
 import {FaceGroup} from "../../mode/sku_realm/fance-group";
 import {Judger} from "../../mode/sku_realm/judger";
+import {SpuDetail} from "../../mode/spu-detail";
 
 Component({
     /**
@@ -18,12 +19,20 @@ Component({
         title: String,
         price: String,
         discount_price: String,
-        stock: String
+        stock: String,
+        isNoSpecs: Boolean
     },
     observers: {
         "dataSpu": function (spu) {
             if (!spu) {
                 return;
+            }
+            if (SpuDetail.isNoSpecs(spu.data)) {
+                this.setData({
+                    isNoSpecs: true
+                })
+                this.bindSkuData(spu.data.sku_list[0])
+                return
             }
             const faceGroup = new FaceGroup(spu);
             faceGroup.initFances();
