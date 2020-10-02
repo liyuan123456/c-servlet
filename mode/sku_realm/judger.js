@@ -14,8 +14,12 @@ class Judger {
         this.initSkuPending();
     }
 
+    isSkuIntact(){
+        return this.skuPending.isIntact();
+    }
+
     initSkuPending() {
-        this.skuPending = new SkuPending();
+        this.skuPending = new SkuPending(this.fanceGroup.fances.length);
         const defalutSku = this.fanceGroup.getDefaultSku();
         if(!defalutSku){
             return

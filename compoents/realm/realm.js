@@ -20,7 +20,8 @@ Component({
         price: String,
         discount_price: String,
         stock: String,
-        isNoSpecs: Boolean
+        isNoSpecs: Boolean,
+        isSkuIntact: Boolean
     },
     observers: {
         "dataSpu": function (spu) {
@@ -28,12 +29,25 @@ Component({
                 return;
             }
             if (SpuDetail.isNoSpecs(spu.data)) {
-                this.setData({
-                    isNoSpecs: true
-                })
-                this.bindSkuData(spu.data.sku_list[0])
-                return
+                this.processNoSpec(spu)
+            } else {
+                this.processHasSpec(spu)
             }
+
+        }
+
+    },
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+        processNoSpec(spu) {
+            this.setData({
+                isNoSpecs: true
+            })
+            this.bindSkuData(spu.data.sku_list[0])
+        },
+        processHasSpec(spu) {
             const faceGroup = new FaceGroup(spu);
             faceGroup.initFances();
             const judger = new Judger(faceGroup);
@@ -44,14 +58,8 @@ Component({
             } else {
                 this.bindSpuData();
             }
-            this.bindInitData(faceGroup);
-        }
-
-    },
-    /**
-     * 组件的方法列表
-     */
-    methods: {
+            this.bindFanceGroupData(faceGroup);
+        },
         bindSpuData: function () {
             const spu = this.properties.dataSpu;
             this.setData({
@@ -70,10 +78,11 @@ Component({
                 stock: sku.stock
             })
         },
-        bindInitData: function (fanceGroup) {
+        bindFanceGroupData: function (fanceGroup) {
             this.setData({
-                fances: fanceGroup.fances
-            })
+                fances: fanceGroup.fances,
+                isSkuIntact: this.data.judger.isSkuIntact()
+            });
         },
         onCellTap(event) {
             /**
@@ -82,7 +91,7 @@ Component({
             const cell = event.detail.cell;
             const judger = this.data.judger;
             judger.judgeByCoor(cell, event.detail.x, event.detail.y)
-            this.bindInitData(judger.fanceGroup);
+            this.bindFanceGroupData(judger.fanceGroup);
         }
     }
 });
