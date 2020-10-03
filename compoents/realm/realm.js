@@ -1,6 +1,7 @@
 import {FaceGroup} from "../../mode/sku_realm/fance-group";
 import {Judger} from "../../mode/sku_realm/judger";
 import {SpuDetail} from "../../mode/spu-detail";
+import {Paging} from "../../utils/Paging";
 
 Component({
     /**
@@ -58,6 +59,7 @@ Component({
             } else {
                 this.bindSpuData();
             }
+            this.bindTipData();
             this.bindFanceGroupData(faceGroup);
         },
         bindSpuData: function () {
@@ -80,9 +82,15 @@ Component({
         },
         bindFanceGroupData: function (fanceGroup) {
             this.setData({
-                fances: fanceGroup.fances,
-                isSkuIntact: this.data.judger.isSkuIntact()
+                fances: fanceGroup.fances
             });
+        },
+        bindTipData: function () {
+            this.setData({
+                isSkuIntact: this.data.judger.isSkuIntact(),
+                currentValues: this.data.judger.getCurrentSpecValues(),
+                missKeys: this.data.judger.getMissingKeys()
+            })
         },
         onCellTap(event) {
             /**
@@ -91,6 +99,13 @@ Component({
             const cell = event.detail.cell;
             const judger = this.data.judger;
             judger.judgeByCoor(cell, event.detail.x, event.detail.y)
+
+            const isIntact = judger.isSkuIntact();
+            if(isIntact){
+                const currentSku = judger.getDetermainteSku();
+                this.bindSkuData(currentSku);
+            }
+            this.bindTipData();
             this.bindFanceGroupData(judger.fanceGroup);
         }
     }

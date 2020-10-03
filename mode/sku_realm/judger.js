@@ -123,6 +123,34 @@ class Judger {
         }
     }
 
+    /**
+     * 获取完整的sku
+     * @returns {*}
+     */
+    getDetermainteSku(){
+        const code = this.skuPending.getSkuCode();
+        const sku = this.fanceGroup.getSku(code);
+        return sku;
+    }
+
+    /**
+     * 返回缺失的规格名
+     * @returns {Array}
+     */
+    getMissingKeys(){
+        const missingKeysIndexs = this.skuPending.getMissingKeysIndexs();
+        return missingKeysIndexs.map(index => {
+            return this.fanceGroup.fances[index].title;
+        })
+    }
+
+    /**
+     * 返回当前已选规格值
+     * @returns {*}
+     */
+    getCurrentSpecValues(){
+        return this.skuPending.getCurrentSpecValues();
+    }
 
 }
 

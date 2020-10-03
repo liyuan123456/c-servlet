@@ -18,7 +18,13 @@
     margin-left: 40rpx;
 }
 .sku-pending{
-    font-size: 20rpx;
+    font-size: 24rpx;
+}
+.sku-pending-tig{
+    color:#999999;
+}
+.sku-pending-tigValue{
+    color: #666666;
 }
 .discount-price{
     margin-left: 20rpx;
