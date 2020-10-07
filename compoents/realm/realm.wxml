@@ -38,5 +38,18 @@
     <block wx:for="{{fances}}" wx:key="id">
         <my-fance x="{{index}}" bind:celltap="onCellTap" fance="{{item}}"></my-fance>
     </block>
-    <view class="counter-container"></view>
+    <view class="counter-container">
+        <text>购买数量</text>
+        <my-counter bind:lintap="onSelectCount"></my-counter>
+    </view>
+
+
+</view>
+
+<view wx:if="{{!isOutOfStock}}" class="bottom-btn">
+    <text>加入购物车</text>
+</view>
+
+<view wx:else class="bottom-btn out-stock">
+    <text>暂时缺货</text>
 </view>

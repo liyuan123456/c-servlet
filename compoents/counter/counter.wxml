@@ -1,0 +1,8 @@
+<l-counter l-count-class="all-background input-size"
+           l-symbol-class="all-background"
+           l-disabled-class="all-background"
+           l-class="container"
+           count="{{count}}" max="{{max}}" min="{{min}}"
+           bind:linout="overFlow">
+
+</l-counter>
