@@ -1,3 +1,2 @@
-<view>
-    <realm dataSpu="{{spuDetail}}"> </realm>
-</view>
+    <!--<realm dataSpu="{{spuDetail}}"> </realm>-->
+    <my-tab-bar></my-tab-bar>

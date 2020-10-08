@@ -1,3 +1,20 @@
 page{
   background-color: #f5f5f5;
 }
+
+@font-face {
+  font-family: 'sleeve';  /* project id 2116769 */
+  src: url('//at.alicdn.com/t/font_2116769_2why3j3woj.eot');
+  src: url('//at.alicdn.com/t/font_2116769_2why3j3woj.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2116769_2why3j3woj.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2116769_2why3j3woj.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2116769_2why3j3woj.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2116769_2why3j3woj.svg#sleeve') format('svg');
+}
+
+.l-icon-home:before{
+  content: '\e602';
+}
+.l-icon-mcart:before{
+  content: '\e600';
+}
