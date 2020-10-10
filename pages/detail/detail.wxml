@@ -1,2 +1,8 @@
-    <!--<realm dataSpu="{{spuDetail}}"> </realm>-->
-    <my-tab-bar></my-tab-bar>
+    <l-popup show="{{showRealm}}" content-align="bottom">
+        <realm dataSpu="{{spuDetail}}"></realm>
+    </l-popup>
+    <my-tab-bar class="tabbar" bind:ongotohome="onGoToHome"
+                               bind:ongotocart="onGoToCart"
+                               bind:onaddtocart="onAddToCart"
+                               bind:onbuy="onBuy"
+    ></my-tab-bar>
