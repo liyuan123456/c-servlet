@@ -2,6 +2,8 @@
     padding: 30rpx;
     box-sizing: border-box;
     background-color: #ffffff;
+    max-height: 1000rpx;
+    min-height: 700rpx;
 }
 .sku-preview{
     display: flex;
@@ -57,6 +59,12 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 200rpx;
+}
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
 }
 .counter-container text{
     color:#555555;
