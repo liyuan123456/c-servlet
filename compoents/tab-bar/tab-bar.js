@@ -15,20 +15,16 @@ Component({
      */
     methods: {
         onGoToHome: function () {
-            const log = 'onGoToHome';
-            this.triggerEvent('ongotohome',log);
+            this.triggerEvent('ongotohome');
         },
         onGoToCart: function () {
-            const log = 'onGoToCart';
-            this.triggerEvent('ongotocart', log);
+            this.triggerEvent('ongotocart');
         },
         onAddToCart: function () {
-            const log = 'onAddToCart';
-            this.triggerEvent('onaddtocart', log);
+            this.triggerEvent('onaddtocart');
         },
         onBuy: function () {
-            const log = 'onBuy';
-            this.triggerEvent('onbuy',log)
+            this.triggerEvent('onbuy')
         }
     }
 });

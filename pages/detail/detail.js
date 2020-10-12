@@ -1,4 +1,5 @@
 import {SpuDetail} from "../../mode/spu-detail";
+import {ShopingWay} from "../../core/enum";
 
 Page({
 
@@ -15,24 +16,27 @@ Page({
             spuDetail
         })
     },
-    onGoToHome: function (event) {
-        console.log(event.detail)
+    onGotoHome: function (event) {
+        wx.switchTab({
+            url:'/pages/home/home'
+        })
     },
-    onGoToCart: function (event) {
-
-        console.log(event.detail)
+    onGotoCart: function (event) {
+        wx.switchTab({
+            url:'/pages/cart/cart'
+        })
     },
     onAddToCart: function (event) {
         this.setData({
-            showRealm:true
+            showRealm:true,
+            orderWay:ShopingWay.CART
         })
-        console.log(event.detail)
     },
     onBuy: function (event) {
         this.setData({
-            showRealm:true
+            showRealm:true,
+            orderWay:ShopingWay.BUY
         })
-        console.log(event.detail)
     }
 
 

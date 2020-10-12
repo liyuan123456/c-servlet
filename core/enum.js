@@ -3,7 +3,12 @@ const statusEnum = {
     SELECTED: "selected",
     WAITING: "waiting"
 }
+const ShopingWay = {
+    CART : 'cart',
+    BUY : 'buy'
+}
 
 export {
-    statusEnum
+    statusEnum,
+    ShopingWay
 }

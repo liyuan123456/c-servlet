@@ -10,6 +10,7 @@ Component({
      */
     properties: {
         dataSpu: Object,
+        orderWay: String
     },
 
     /**
