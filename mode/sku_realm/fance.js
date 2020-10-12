@@ -32,6 +32,20 @@ class Fance {
             this.cells.push(cell);
         });
     }
+
+    setFanceSketch(skuList){
+        this.cells.forEach( c => {
+            this.setCellSkuImg(c,skuList);
+        })
+    }
+
+    setCellSkuImg(cell,skuList){
+        const specCode = cell.getCellCode();
+        const matchedSku= skuList.find(s=>s.code.includes(specCode));
+        if(matchedSku){
+            cell.skuImg = matchedSku.img;
+        }
+    }
 }
 
 export {

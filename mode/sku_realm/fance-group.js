@@ -27,9 +27,20 @@ class FaceGroup {
         AT.forEach(row => {
             const fance = new Fance(row);
             fance.init();
+            if(this.hasSketchSpecId() && this.isSketchSpecId(fance.id)){
+                fance.setFanceSketch(this.skuList);
+            }
             fances.push(fance);
         })
         this.fances = fances;
+    }
+
+    hasSketchSpecId(){
+        return this.spu.data.sketch_spec_id?true:false
+    }
+
+    isSketchSpecId(fanceId){
+        return this.spu.data.sketch_spec_id === fanceId?true:false
     }
 
     createMatrix(spulist) {
