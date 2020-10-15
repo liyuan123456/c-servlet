@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "realm":"../../compoents/realm/realm",
-    "my-tab-bar":"../../compoents/tab-bar/tab-bar"
+    "my-tab-bar":"../../compoents/tab-bar/tab-bar",
+    "my-spu-description":"../../compoents/spu-description/index"
   }
 }

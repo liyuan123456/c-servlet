@@ -24,10 +24,10 @@
                     <view wx:if="{{stock == 0}}" class="stock-pinch">已售罄</view>
                 </view>
                 <view wx:if="{{!isNoSpecs}}" class="sku-pending">
-                    <text class="sku-pending-tig" wx:if="{{!isSkuIntact}}">请选择:</text>
-                    <text class="sku-pending-tig" wx:else="{{isSkuIntact}}">已选择:</text>
-                    <text class="sku-pending-tigValue" wx:if="{{!isSkuIntact}}">{{missKeys}}</text>
-                    <text class="sku-pending-tigValue" wx:else="{{isSkuIntact}}">{{currentValues}}</text>
+                    <text wx:if="{{!isSkuIntact}}">请选择:</text>
+                    <text wx:else>已选:</text>
+                    <text wx:if="{{!isSkuIntact}}">{{missKeys}}</text>
+                    <text wx:else>{{currentValues}}</text>
                 </view>
             </view>
         </view>

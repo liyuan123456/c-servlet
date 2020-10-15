@@ -37,7 +37,7 @@ Component({
             } else {
                 this.processHasSpec(spu)
             }
-
+            this.triggerSpecEvent();
         }
 
     },
@@ -102,6 +102,20 @@ Component({
                 missKeys: this.data.judger.getMissingKeys()
             })
         },
+        triggerSpecEvent: function () {
+            if (this.data.isNoSpecs) {
+                this.triggerEvent('specchange',{
+                    isNoSpecs:this.properties.isNoSpecs,
+                })
+            }else{
+                this.triggerEvent('specchange', {
+                    isNoSpecs: this.data.isNoSpecs,
+                    isSkuIntact: this.data.judger.isSkuIntact(),
+                    currentValues: this.data.judger.getCurrentSpecValues(),
+                    missKeys: this.data.judger.getMissingKeys()
+                })
+            }
+        },
         onSelectCount: function (event) {
             const currentCount = event.detail.count;
             this.data.skuCurrentCount = currentCount;
@@ -145,6 +159,7 @@ Component({
             }
             this.bindTipData();
             this.bindFanceGroupData(judger.fanceGroup);
+            this.triggerSpecEvent();
         }
     }
 });

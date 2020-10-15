@@ -22,11 +22,14 @@
 .sku-pending{
     font-size: 24rpx;
 }
-.sku-pending-tig{
-    color:#999999;
+.sku-pending > text:first-child{
+    color: #999999;
+    font-size: 24rpx;
 }
-.sku-pending-tigValue{
-    color: #666666;
+.sku-pending > text:nth-child(2){
+    margin-left:40rpx;
+    color: #157658;
+    font-size: 24rpx;
 }
 .discount-price{
     margin-left: 20rpx;
