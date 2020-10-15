@@ -1,5 +1,6 @@
 import {SpuDetail} from "../../mode/spu-detail";
 import {ShopingWay} from "../../core/enum";
+import {Explan} from "../../mode/explan";
 
 Page({
 
@@ -7,8 +8,12 @@ Page({
         spuDetail: null,
         showRealm: false
     },
-    onLoad: function (options) {
-        this.initSpuDetail(options.pid)
+    async onLoad(options) {
+        this.initSpuDetail(options.pid);
+        const explan = await Explan.getExplan();
+        this.setData({
+            explan
+        })
     },
     async initSpuDetail(options) {
         const spuDetail = await SpuDetail.getSpuDetail(options);

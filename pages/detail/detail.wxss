@@ -1,3 +1,13 @@
+.container{
+    height: calc(100vh - 100rpx)
+}
+/*隐藏滚动条*/
+::-webkit-scrollbar{
+    display: none;
+    width: 0;
+    height: 0;
+    color: transparent;
+}
 .tabbar{
     position: fixed;
     bottom: 0;
@@ -29,3 +39,20 @@
     color: #157658;
     font-size: 24rpx;
 }
+.explain{
+    margin-top:10rpx;
+    background-color: #ffffff;
+    padding-bottom: 20rpx;
+    padding-top: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.detail-img{
+    display: flex;
+    width:100%;
+}
+
+
+

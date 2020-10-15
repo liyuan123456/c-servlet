@@ -1,4 +1,4 @@
-    <view>
+    <scroll-view scroll-y="true" class="container">
         <swiper class="top" autoplay indicator-dots>
             <block wx:for="{{spuDetail.data.spu_img_list}}" wx:for-item="imgSrc" wx:key="id">
                 <swiper-item>
@@ -9,7 +9,7 @@
 
         <my-spu-description spu="{{spuDetail}}"></my-spu-description>
 
-        <view  wx:if="{{!isNoSpecs}}" class="sku-pending">
+        <view bind:tap="onAddToCart" wx:if="{{!isNoSpecs}}" class="sku-pending">
             <view class="specs">
                 <text wx:if="{{!isSkuIntact}}">请选择:</text>
                 <text wx:else>已选:</text>
@@ -20,7 +20,15 @@
                 <l-icon name="right" color="#157658" size="24"></l-icon>
             </view>
         </view>
-    </view>
+        <view class="explain">
+            <my-sale-explain text="{{explan}}"></my-sale-explain>
+        </view>
+        <view class="detail-img-container">
+            <block wx:for="{{spuDetail.data.spu_detail_img_list}}" wx:key="index">
+                <image mode="widthFix" class="detail-img" src="{{item.img}}"></image>
+            </block>
+        </view>
+    </scroll-view>
     <l-popup show="{{showRealm}}" content-align="bottom">
         <realm bind:specchange="onSpecChange" orderWay="{{orderWay}}" dataSpu="{{spuDetail}}"></realm>
     </l-popup>
