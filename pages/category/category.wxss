@@ -32,14 +32,11 @@ page{
 }
 .segment-item{
     color: #666666 !important;
-    background-color: #ff88c2!important;
+    background-color: #ffffff!important;
     font-size:26rpx !important;
 }
-.left-segment{
-    height: calc(100vh - 82rpx) !important;
-}
-::-webkit-scrollbar {
-    width:0;
-    height:0;
-    color:transparent;
-}
+/*::-webkit-scrollbar {*/
+    /*width:0;*/
+    /*height:0;*/
+    /*color:transparent;*/
+/*}*/

@@ -9,32 +9,15 @@
         </l-button>
     </view>
     <view class="main">
-        <l-segment placement="left" item-height="100" l-class="left-segment" width="160"
-                   l-active-class="segment-item-active" l-inactive-class="segment-item">
-            <l-segment-item key="1" tab="战士"></l-segment-item>
-            <l-segment-item key="2" tab="术士"></l-segment-item>
-            <l-segment-item key="3" tab="法师"></l-segment-item>
-            <l-segment-item key="4" tab="牧师"></l-segment-item>
-            <l-segment-item key="5" tab="盗贼"></l-segment-item>
-
-            <l-segment-item key="1" tab="战士"></l-segment-item>
-            <l-segment-item key="2" tab="术士"></l-segment-item>
-            <l-segment-item key="3" tab="法师"></l-segment-item>
-            <l-segment-item key="4" tab="牧师"></l-segment-item>
-            <l-segment-item key="5" tab="盗贼"></l-segment-item>
-
-            <l-segment-item key="1" tab="战士"></l-segment-item>
-            <l-segment-item key="2" tab="术士"></l-segment-item>
-            <l-segment-item key="3" tab="法师"></l-segment-item>
-            <l-segment-item key="4" tab="牧师"></l-segment-item>
-            <l-segment-item key="5" tab="盗贼"></l-segment-item>
-
-            <l-segment-item key="1" tab="战士"></l-segment-item>
-            <l-segment-item key="2" tab="术士"></l-segment-item>
-            <l-segment-item key="3" tab="法师"></l-segment-item>
-            <l-segment-item key="4" tab="牧师"></l-segment-item>
-            <l-segment-item key="5" tab="盗贼"></l-segment-item>
+        <l-segment placement="left" item-height="100" width="160" active-key="{{defaultRootId}}"
+                   l-active-class="segment-item-active" l-inactive-class="segment-item"
+                   scrollable height="" even="{{false}}" height="{{segHeight}}">
+            <block wx:for="{{roots}}" wx:key="id" >
+                <l-segment-item key="{{item.id}}" tab="{{item.name}}"></l-segment-item>
+            </block>
         </l-segment>
-        <scroll-view class="right"></scroll-view>
+        <view class="right">
+            <sub-category categories="{{currentSubs}}" bannerImg="{{currentBannerImg}}"></sub-category>
+        </view>
     </view>
 </view>

@@ -1,6 +1,6 @@
 const config = {
     appkey: 'UZwOyxQkcPbWQPPR',
-    basePath: 'http://se.7yue.pro/'
+    basePath: 'http://se.talelin.com/'
 };
 
 export {
