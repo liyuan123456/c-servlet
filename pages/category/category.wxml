@@ -11,7 +11,8 @@
     <view class="main">
         <l-segment placement="left" item-height="100" width="160" active-key="{{defaultRootId}}"
                    l-active-class="segment-item-active" l-inactive-class="segment-item"
-                   scrollable height="" even="{{false}}" height="{{segHeight}}">
+                   scrollable height="" even="{{false}}" height="{{segHeight}}"
+                   bind:linchange="onSegChange">
             <block wx:for="{{roots}}" wx:key="id" >
                 <l-segment-item key="{{item.id}}" tab="{{item.name}}"></l-segment-item>
             </block>

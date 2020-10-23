@@ -8,7 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        defaultRootId:1
+        defaultRootId:2
     },
     onLoad: function () {
         this.setSegHeight();
@@ -21,7 +21,6 @@ Page({
         const roots = categories.getRoots();
         const defaultRoot = this.getDefaultRoot(roots);
         const currentSubs = categories.getSubs(defaultRoot.id);
-        console.log(categories);
         this.setData({
             roots,
             currentSubs,
@@ -51,5 +50,18 @@ Page({
                 console.log('跳转成功')
             }
         })
+    },
+    onSegChange(event){
+        const categories = this.data.categories;
+        const currentRootId = event.detail.activeKey;
+        const currentSubs = categories.getSubs(currentRootId);
+        const currentRoot = categories.getRoot(currentRootId);
+
+        this.setData({
+            currentSubs,
+            currentBannerImg:currentRoot.img
+        })
+
+
     }
 });
