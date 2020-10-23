@@ -4,7 +4,7 @@
 
     <l-grid l-class="inner-container">
         <block wx:for="{{categories}}" wx:key="id">
-            <l-grid-item key="{{item.id}}" slot="{{item.id}}">
+            <l-grid-item bind:linitemtap="onTapGridItem" key="{{item.id}}" slot="{{item.id}}">
                 <view class="grid-item">
                     <image mode="aspectFit" src="{{item.img}}" class="img"></image>
                     <text>{{item.name}}</text>

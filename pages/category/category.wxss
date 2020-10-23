@@ -35,6 +35,13 @@ page{
     background-color: #ffffff!important;
     font-size:26rpx !important;
 }
+.right{
+    width:588rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 2rpx solid #f3f3f3;
+}
 /*::-webkit-scrollbar {*/
     /*width:0;*/
     /*height:0;*/

@@ -18,7 +18,7 @@
             </block>
         </l-segment>
         <view class="right">
-            <sub-category categories="{{currentSubs}}" bannerImg="{{currentBannerImg}}"></sub-category>
+            <sub-category bind:itemtap="onJumpToSpuList" categories="{{currentSubs}}" bannerImg="{{currentBannerImg}}"></sub-category>
         </view>
     </view>
 </view>
