@@ -1,4 +1,5 @@
 import {HistoryKeyWord} from "../../mode/history-keyword";
+import {Tag} from "../../mode/tag";
 
 const history = new HistoryKeyWord();
 Page({
@@ -7,10 +8,12 @@ Page({
      * 页面的初始数据
      */
     data: {},
-    onLoad(){
+    async onLoad(){
         const historyTags = history.get();
+        const hotTags = await Tag.getHotTags();
         this.setData({
-            historyTags
+            historyTags,
+            hotTags:hotTags.data
         });
     },
     onSearch(event) {

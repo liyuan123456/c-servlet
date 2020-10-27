@@ -48,3 +48,9 @@ page{
     margin-right: 20rpx;
     margin-bottom: 20rpx;
 }
+.tag-seleced{
+    background-color: aqua !important;
+    color: #157658;
+    margin-right:20rpx;
+    margin-bottom: 20rpx;
+}

@@ -24,4 +24,19 @@
             </view>
         </view>
     </view>
+
+    <view>
+        <view class="history-container" >
+            <view class="history-title">
+                <view class="slide"></view>
+                <text>热门搜索</text>
+                <view style="flex:1"></view>
+            </view>
+            <view class="history-tags">
+                <block wx:for="{{hotTags}}" wx:key="index">
+                    <l-tag name="{{item.title}}" select="{{item.highlight == 1}}" l-class="tag"  l-select-class="tag-seleced">{{item.title}}</l-tag>
+                </block>
+            </view>
+        </view>
+    </view>
 </view>
