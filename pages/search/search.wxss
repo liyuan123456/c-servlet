@@ -22,6 +22,16 @@ page{
     align-items: center;
     margin-top:38rpx;
 }
+.history-tags {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top:20rpx;
+    padding-left:30rpx;
+    flex-wrap: wrap;
+}
 .history-title > text{
     font-size:28rpx;
     color: #333333;
@@ -31,4 +41,10 @@ page{
     height:46rpx;
     background-color: #157658;
     margin-right: 22rpx;
+}
+.tag {
+    background-color: #f3f3f3 !important;
+    color: #666666 !important;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
 }
