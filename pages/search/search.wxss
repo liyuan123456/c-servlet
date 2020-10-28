@@ -2,6 +2,7 @@ page{
     background-color: white;
 }
 .heider{
+    background-color: #ffffff;
     border-bottom: 1px solid #f3f3f3;
     padding-bottom: 14rpx;
     position: fixed;
@@ -53,4 +54,15 @@ page{
     color: #157658;
     margin-right:20rpx;
     margin-bottom: 20rpx;
+}
+.spu-bottom {
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 18rpx;
+    padding-left: 18rpx;
+    padding-right: 18rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    flex-wrap: wrap;
 }

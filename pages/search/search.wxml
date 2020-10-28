@@ -2,12 +2,13 @@
     <l-search-bar placeholder="输入商品名称"
                   maxlength="9"
                   bg-color="#f1f1f1"
-                  bind:linconfirm="onSearch">
+                  bind:linconfirm="onSearch"
+                  bind:lincancel="onCancal">
     </l-search-bar>
 </view>
 
 <view class="container">
-    <view>
+    <view wx:if="{{!search}}">
         <view class="history-container" wx:if="{{historyTags.length !== 0}}">
             <view class="history-title">
                 <view class="slide"></view>
@@ -19,13 +20,10 @@
             </view>
             <view class="history-tags">
                 <block wx:for="{{historyTags}}" wx:key="index">
-                    <l-tag name="{{item}}" l-class="tag">{{item}}</l-tag>
+                    <l-tag bind:lintap="onTag" name="{{item}}" l-class="tag">{{item}}</l-tag>
                 </block>
             </view>
         </view>
-    </view>
-
-    <view>
         <view class="history-container" >
             <view class="history-title">
                 <view class="slide"></view>
@@ -34,9 +32,20 @@
             </view>
             <view class="history-tags">
                 <block wx:for="{{hotTags}}" wx:key="index">
-                    <l-tag name="{{item.title}}" select="{{item.highlight == 1}}" l-class="tag"  l-select-class="tag-seleced">{{item.title}}</l-tag>
+                    <l-tag bind:lintap="onTag" name="{{item.title}}" select="{{item.highlight == 1}}" l-class="tag"  l-select-class="tag-seleced">{{item.title}}</l-tag>
                 </block>
             </view>
         </view>
     </view>
+    <view wx:else>
+        <l-loadmore show end-text="{{loadingText}}" type="{{loadingType}}">
+            <view slot="content" hidden="{{!search}}" class="spu-bottom">
+                <block wx:for="{{items}}" wx:key="index">
+                    <my-spu-priview-r data="{{item}}"></my-spu-priview-r>
+                </block>
+            </view>
+        </l-loadmore>
+    </view>
+
+    <l-loading></l-loading>
 </view>
