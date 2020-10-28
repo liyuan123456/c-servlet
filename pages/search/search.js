@@ -42,6 +42,7 @@ Page({
     },
     async searchData(keyword){
         const paging = Search.getSearch(keyword);
+        this.data.paging = paging;
         wx.lin.showLoading({
             color:'#157658',
             type:'change',
@@ -55,13 +56,19 @@ Page({
         if(data.accumulator.length !== 0){
             this.setData({
                 items: data.accumulator,
-                loadingType:'end',
-                loadingText:this.loadType(data)
+                loadingType:this.loadType(data)
             });
         }
     },
+    async onReachBottom(){
+        const paging =this.data.paging;
+        if(paging.moreData){
+            const data = await paging.getMoreData();
+            this.bindItems(data);
+        }
+    },
     loadType(data){
-        return data.moreData ? '以上为热搜商品' : '无更多商品';
+        return data.moreData ? 'loading' : 'end';
     },
     onDeleteHistory(){
         history.clear();
@@ -73,6 +80,8 @@ Page({
         this.setData({
             search:false
         })
-    }
+    },
+
+
 
 });

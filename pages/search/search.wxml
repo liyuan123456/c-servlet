@@ -38,7 +38,7 @@
         </view>
     </view>
     <view wx:else>
-        <l-loadmore show end-text="{{loadingText}}" type="{{loadingType}}">
+        <l-loadmore show end-text="- 无更多商品 -" type="{{loadingType}}" loading-text="努力加载中...">
             <view slot="content" hidden="{{!search}}" class="spu-bottom">
                 <block wx:for="{{items}}" wx:key="index">
                     <my-spu-priview-r data="{{item}}"></my-spu-priview-r>
