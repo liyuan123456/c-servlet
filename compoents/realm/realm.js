@@ -1,7 +1,6 @@
 import {FaceGroup} from "../../mode/sku_realm/fance-group";
 import {Judger} from "../../mode/sku_realm/judger";
 import {SpuDetail} from "../../mode/spu-detail";
-import {Paging} from "../../utils/Paging";
 import {Cart} from "../../mode/cart/cart";
 
 Component({

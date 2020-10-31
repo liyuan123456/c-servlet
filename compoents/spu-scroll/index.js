@@ -3,7 +3,7 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        theme:Object,
+        theme: Object,
         spuList: Array
     },
 
@@ -15,5 +15,12 @@ Component({
     /**
      * 组件的方法列表
      */
-    methods: {}
-})
+    methods: {
+        spuDetail(event) {
+            const spuId = event.currentTarget.id;
+            wx.navigateTo({
+                url:`/pages/detail/detail?pid=${spuId}`
+            })
+        }
+    }
+});
