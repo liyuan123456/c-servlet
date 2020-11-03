@@ -46,7 +46,7 @@
 
 <view wx:if="{{!isOutOfStock}}" class="bottom-btn">
     <text wx:if="{{orderWay === 'cart'}}">加入购物车</text>
-    <text wx:else>立即购买</text>
+    <text wx:else>立即购入</text>
 </view>
 
 <view wx:else class="bottom-btn out-stock">
